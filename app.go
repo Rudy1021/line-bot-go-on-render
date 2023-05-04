@@ -29,7 +29,7 @@ func main() {
 				case *linebot.TextMessage:
 
 					if message.Text == "打卡" {
-						timestamp = event.Timestamp
+						timestamp = event.Timestamp.UTC()
 					}
 					if _, err = bot.ReplyMessage(event.ReplyToken,
 						linebot.NewTextMessage(timestamp.String())).Do(); err != nil {

@@ -29,10 +29,24 @@ func main() {
 				case *linebot.TextMessage:
 
 					if message.Text == "打卡" {
-						timestamp = event.Timestamp.UTC()
+						loc, _ := time.LoadLocation("Asia/Taipei")
+
+						// 轉換為UTC+8時間
+						timestamp = event.Timestamp.In(loc)
+
+						newTimestamp := timestamp.Add(time.Minute * 10)
+						newTimestamp = newTimestamp.Add(time.Hour * 9)
+
+						msg := "上崗時間：" + timestamp.Format("15:04:05") + "\n" + "下崗時間" + newTimestamp.Format("15:04:05")
+
+						if _, err = bot.ReplyMessage(event.ReplyToken,
+							linebot.NewTextMessage(msg)).Do(); err != nil {
+							log.Print(err)
+						}
+
 					}
 					if _, err = bot.ReplyMessage(event.ReplyToken,
-						linebot.NewTextMessage(timestamp.String())).Do(); err != nil {
+						linebot.NewTextMessage("????")).Do(); err != nil {
 						log.Print(err)
 					}
 				}

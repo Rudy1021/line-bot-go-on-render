@@ -1,17 +1,17 @@
 services:
-- type: web
-  name: line-bot-go-echo
-  env: go
-  repo: https://github.com/line/line-bot-sdk-go.git
-  buildCommand: cd examples/echo_bot;go build -o app
-  startCommand: ./examples/echo_bot/app
-  plan: free
-  autoDeploy: false
-  envVars:
-  - key: CHANNEL_TOKEN
-    sync: false
-  - key: CHANNEL_SECRET
-    sync: false
+  - type: web
+    name: line-bot-go-echo
+    env: go
+    repo: https://github.com/Rudy1021/line-bot-go-on-render.git
+    buildCommand: go build -o app
+    startCommand: ./
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: /ppMUopJaNfW1sbqXSAd8fncob/p+yfD1r37r5P3SkMA0LHWUfjycs2c9gyykwpmLlFa8cKgF8cZfrZYZZxlQawzj43YNZd5IPWNx31WI42s6is5b9aCvBASgNT+Jt7z3X+ORJuSEvsPPlPlXymc9AdB04t89/1O/w1cDnyilFU=
+        sync: false
+      - key: 06ba3775aca06dc01fcf536baf3145c7
+        sync: false
 # - type: web
 #   name: line-bot-go-echo-handler
 #   env: go

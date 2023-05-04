@@ -22,10 +22,10 @@ func main() {
 		}
 		for _, event := range events {
 			if event.Type == linebot.EventTypeMessage {
-				switch message := event.Message.(type) {
+				switch event.Message.(type) {
 				case *linebot.TextMessage:
 					if _, err = bot.ReplyMessage(event.ReplyToken,
-						linebot.NewTextMessage(message.Text)).Do(); err != nil {
+						linebot.NewTextMessage("hahahahahahasdsdsdsd")).Do(); err != nil {
 						log.Print(err)
 					}
 				}

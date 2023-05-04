@@ -3,8 +3,8 @@ services:
     name: line-bot-go-echo
     env: go
     repo: https://github.com/Rudy1021/line-bot-go-on-render.git
-    buildCommand: go build -o app
-    startCommand: ./
+    buildCommand: cd examples/echo_bot;go build -o app
+    startCommand: ./examples/echo_bot/app
     plan: free
     autoDeploy: false
     envVars:
@@ -12,29 +12,3 @@ services:
         sync: false
       - key: 06ba3775aca06dc01fcf536baf3145c7
         sync: false
-# - type: web
-#   name: line-bot-go-echo-handler
-#   env: go
-#   repo: https://github.com/line/line-bot-sdk-go.git
-#   buildCommand: cd examples/echo_bot_handler;go build -o app
-#   startCommand: ./examples/echo_bot_handler/app
-#   plan: free
-#   autoDeploy: false
-#   envVars:
-#   - key: CHANNEL_TOKEN
-#     sync: false
-#   - key: CHANNEL_SECRET
-#     sync: false
-# - type: web
-#   name: line-bot-go-kitchensink
-#   env: go
-#   repo: https://github.com/line/line-bot-sdk-go.git
-#   buildCommand: cd examples/kitchensink;go build -o app
-#   startCommand: APP_BASE_URL=$RENDER_EXTERNAL_URL ./examples/kitchensink/app
-#   plan: free
-#   autoDeploy: false
-#   envVars:
-#   - key: CHANNEL_TOKEN
-#     sync: false
-#   - key: CHANNEL_SECRET
-#     sync: false

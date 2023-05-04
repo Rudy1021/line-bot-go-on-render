@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	bot, _ := linebot.New("06ba3775aca06dc01fcf536baf3145c7", "/ppMUopJaNfW1sbqXSAd8fncob/p+yfD1r37r5P3SkMA0LHWUfjycs2c9gyykwpmLlFa8cKgF8cZfrZYZZxlQawzj43YNZd5IPWNx31WI42s6is5b9aCvBASgNT+Jt7z3X+ORJuSEvsPPlPlXymc9AdB04t89/1O/w1cDnyilFU=")
+	bot, _ := linebot.New("06ba3775aca06dc01fcf536baf3145c7",
+		"/ppMUopJaNfW1sbqXSAd8fncob/p+yfD1r37r5P3SkMA0LHWUfjycs2c9gyykwpmLlFa8cKgF8cZfrZYZZxlQawzj43YNZd5IPWNx31WI42s6is5b9aCvBASgNT+Jt7z3X+ORJuSEvsPPlPlXymc9AdB04t89/1O/w1cDnyilFU=")
 
 	http.HandleFunc("/callback", func(w http.ResponseWriter, req *http.Request) {
 		events, err := bot.ParseRequest(req)

@@ -3,8 +3,8 @@ services:
     name: line-bot-go-echo
     env: go
     repo: https://github.com/Rudy1021/line-bot-go-on-render.git
-    buildCommand: cd examples/echo_bot;go build -o app
-    startCommand: ./examples/echo_bot/app
+    buildCommand: go build -o app
+    startCommand: ./app
     plan: free
     autoDeploy: false
     envVars:

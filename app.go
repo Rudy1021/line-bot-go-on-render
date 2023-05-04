@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/line/line-bot-sdk-go/v7/linebot"
 )
@@ -33,4 +34,7 @@ func main() {
 			}
 		}
 	})
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
+		log.Fatal(err)
+	}
 }

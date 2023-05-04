@@ -32,7 +32,7 @@ func main() {
 						timestamp = event.Timestamp
 					}
 					if _, err = bot.ReplyMessage(event.ReplyToken,
-						linebot.NewTextMessage(timestamp.Format("HH:mm:ss"))).Do(); err != nil {
+						linebot.NewTextMessage(timestamp.String())).Do(); err != nil {
 						log.Print(err)
 					}
 				}

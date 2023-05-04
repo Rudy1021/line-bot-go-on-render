@@ -43,7 +43,7 @@ func main() {
 							linebot.NewTextMessage(msg)).Do(); err != nil {
 							log.Print(err)
 						}
-
+						return
 					}
 					if _, err = bot.ReplyMessage(event.ReplyToken,
 						linebot.NewTextMessage("????")).Do(); err != nil {

@@ -34,17 +34,21 @@ func main() {
 
 						// 轉換為UTC+8時間
 						timestamp = event.Timestamp.In(loc)
+						newTimestamp = timestamp.Add(time.Minute * 10)
+						newTimestamp = newTimestamp.Add(time.Hour * 9)
 
+						msg := "上崗時間：" + timestamp.Format("15:04:05") + "\n" + "下崗時間：" + newTimestamp.Format("15:04:05")
+
+						if _, err = bot.ReplyMessage(event.ReplyToken,
+							linebot.NewTextMessage(msg)).Do(); err != nil {
+							log.Print(err)
+						}
+					} else {
+						if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+							log.Print(err)
+						}
 					}
-					newTimestamp = timestamp.Add(time.Minute * 10)
-					newTimestamp = newTimestamp.Add(time.Hour * 9)
 
-					msg := "上崗時間：" + timestamp.Format("15:04:05") + "\n" + "下崗時間：" + newTimestamp.Format("15:04:05")
-
-					if _, err = bot.ReplyMessage(event.ReplyToken,
-						linebot.NewTextMessage(msg)).Do(); err != nil {
-						log.Print(err)
-					}
 				}
 			}
 		}

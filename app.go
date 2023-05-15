@@ -43,10 +43,12 @@ func main() {
 							linebot.NewTextMessage(msg)).Do(); err != nil {
 							log.Print(err)
 						}
+						log.Print("傳送訊息:", msg)
 					} else {
 						if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
 							log.Print(err)
 						}
+						log.Print("傳送訊息:", message.Text)
 					}
 
 				}
